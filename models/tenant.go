@@ -6,13 +6,13 @@ import (
 )
 
 type Tenant struct {
-	Id        int64      `json:"id"`
+	TenantId  int64      `gorm:"primarykey" json:"id"`
 	Name      string     `json:"name"`
 	Email     string     `json:"email"`
 	Address   string     `json:"address"`
 	LogoUrl   string     `json:"logo_url"`
-	CreatedAt time.Time  `json:"created_at"`
-	UpdatedAt *time.Time `json:"updated_at"`
+	CreatedAt time.Time  `gorm:"type:time" json:"created_at"`
+	UpdatedAt *time.Time `gorm:"type:time" json:"updated_at"`
 }
 
 // Render implements render.Renderer.
